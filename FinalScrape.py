@@ -17,10 +17,13 @@ for url in seedset:
         links.append(link.get('href'))
     totallinks += links
 
+urlfile = open("index.txt", "w+")
+
 i = 0
 for link in totallinks:
     ts = datetime.datetime.now()
     ts.strftime("%m/%d/%Y")
-    print(i, ".html", ts, link)
+    line = str(i) + ".html " + str(ts) + " " + link + "\n"
+    urlfile.write(line)
     i+=1
 
